@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #453f3f;
+        }
+    
+        .container {
+          max-width: 400px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #4b5c6d;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .container h2 {
+          text-align: center;
+        }
+
+        .container h3 {
+          text-align: center;
+        }
+
+        .container h4 {
+          text-align: center;
+        }
+    
+        .form-group {
+          margin-bottom: 20px;
+        }
+    
+        .form-group label {
+          display: block;
+          margin-bottom: 5px;
+        }
+    
+        .form-group input {
+          width: 380px;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+        }
+    
+        .form-group button {
+          width: 100%;
+          padding: 10px;
+          font-size: 16px;
+          color: #fff;
+          background-color: #00ff4c;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      </style>
+    <title>Room Booking Form</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Bookings must be made 3 days in advance.</h2>
+        <h3>Room Capacities:</h3>
+        <ul>
+            <li>West Wing: 30 People</li>
+            <li>South Wing: 30 People</li>
+            <li>Forest: 12 People</li>
+            <li>Meeting Room: 10 People</li>
+            <li>TA Lounge: 3 People</li>
+            <li>AWS Lounge: 8 People</li>
+        </ul>
+
+        <h4>NOTE: West and South Wing bookings must have a minimum of 10 people.</h4>
+        <form class="form-group" action="/roomPicked" method="POST">
+            <label for="datepicker">Date:</label>
+            <input placeholder="DD/MM/YYYY" type="text" id="date" name="date" required><br><br>
+            <label for="room">Room:</label>
+            <select id="room" name="room" required>
+                <option value="West Wing">West Wing</option>
+                <option value="South Wing">South Wing</option>
+                <option value="Forest">Forest</option>
+                <option value="Meeting Room">Meeting Room</option>
+                <option value="TA Lounge">TA Lounge</option>
+                <option value="AWS Lounge">AWS Lounge</option>
+            </select><br><br>
+            
+            <label for="people">Number of People:</label>
+            <input type="number" id="numPeople" name="numPeople" required>
+            <br><br>
+            <button type="submit" value="Book Room">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

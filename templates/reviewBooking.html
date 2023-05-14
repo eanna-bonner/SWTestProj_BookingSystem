@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #453f3f;
+        }
+    
+        .container {
+          max-width: 400px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #4b5c6d;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .container h2 {
+          text-align: center;
+        }
+    
+        .form-group {
+          margin-bottom: 20px;
+        }
+    
+        .form-group label {
+          display: block;
+          margin-bottom: 5px;
+        }
+    
+        .form-group input {
+          width: 380px;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+        }
+    
+        .form-group button {
+          width: 100%;
+          padding: 10px;
+          font-size: 16px;
+          color: #fff;
+          background-color: #00ff4c;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      </style>
+    <title>Booking Details</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Details</h1>
+        <p><strong>Room:</strong> {{ room }}</p>
+        <p><strong>Date:</strong> {{ date }}</p>
+        <p><strong>Timeslot:</strong> {{ timeslot }}</p>
+        <p><strong>Number of People:</strong> {{ num_people }}</p>
+
+        <form class="form-group" action="/submitBooking">
+            <button type="submit">
+                Submit Booking
+            </button>
+        </form>
+    </div>
+</body>
+</html>

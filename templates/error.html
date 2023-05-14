@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Error Message</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      .error-container {
+        padding: 20px;
+        border: 2px solid #ff0000;
+        border-radius: 5px;
+        background-color: #ffebee;
+        color: #ff0000;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-container">
+      <h1>Error</h1>
+      <p>{{ error_message }}</p>
+    </div>
+    <form action="/button-clicked">
+        <button type="submit">Back to Login</button>
+    </form>
+  </body>
+</html>
