@@ -15,7 +15,11 @@
           border-radius: 5px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-    
+        
+        .container h1 {
+          text-align: center;
+        }
+
         .container h2 {
           text-align: center;
         }
@@ -60,7 +64,9 @@
 </head>
 <body>
     <div class="container">
+        <h1>Welcome {{ name }}!</h1>
         <h2>Bookings must be made 3 days in advance.</h2>
+        <h3>Bookings cannot be made on weekends.</h3>
         <h3>Room Capacities:</h3>
         <ul>
             <li>West Wing: 30 People</li>
@@ -74,7 +80,7 @@
         <h4>NOTE: West and South Wing bookings must have a minimum of 10 people.</h4>
         <form class="form-group" action="/roomPicked" method="POST">
             <label for="datepicker">Date:</label>
-            <input placeholder="DD/MM/YYYY" type="text" id="date" name="date" required><br><br>
+            <input autocomplete="off" placeholder="DD/MM/YYYY" type="text" id="date" name="date" required><br><br>
             <label for="room">Room:</label>
             <select id="room" name="room" required>
                 <option value="West Wing">West Wing</option>

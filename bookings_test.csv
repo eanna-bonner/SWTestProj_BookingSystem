@@ -27,7 +27,9 @@ ID,Name,Room,Date,Timeslot,NumPeople
 20230504,May Burke,AWS Lounge,19/05/2023,6,5
 20230504,May Burke,AWS Lounge,19/05/2023,1,7
 22359435,Eanna Bonner,Forest,25/05/2023,2,5
-22359435,Eanna Bonner,West Wing,18/05/2023,4,15
-22359435,Eanna Bonner,West Wing,18/05/2023,1,18
-22359435,Eanna Bonner,Forest,09/11/2023,4,7
-22359435,Eanna Bonner,Forest,09/11/2023,4,7
+1,John,Forest,2023-06-01,09:00 - 10:00,5
+2,Jane,Beach,2023-06-02,13:00 - 14:00,3
+1,John,Forest,2023-06-01,09:00 - 10:00,5
+2,Jane,Beach,2023-06-02,13:00 - 14:00,3
+1,John,Forest,2023-06-01,09:00 - 10:00,5
+2,Jane,Beach,2023-06-02,13:00 - 14:00,3

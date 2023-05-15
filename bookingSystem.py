@@ -2,7 +2,6 @@ import pandas as pd
 from datetime import datetime, timedelta
 whitelistdf = pd.read_csv("whitelist.csv")
 bookingsdf = pd.read_csv("bookings.csv")
-roomSlotsdf = pd.read_csv("roomSlots.csv")
 
 
 '''
@@ -13,11 +12,13 @@ CONSTRAINTS
 - Can't book on weekend
 - Can't exceed room capacity
 - West and South wing bookings must have at least 10 people
-
 '''
 # Variables
 roomCapacityDict = {"West Wing":30, "South Wing":30, "Forest":12, "Meeting Room":10, "TA Lounge":3, "AWS Lounge":8}
 
+def refreshCSV():
+    global bookingsdf
+    bookingsdf = pd.read_csv("bookings.csv")
 
 def checkIDinCSV(input: int):
     x = whitelistdf['ID'].eq(input).any()
@@ -69,66 +70,3 @@ def checkCapacity(room, numPeople):
         return True
     else:
         return False
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def main():
-    inputID = int(input("Please enter your ID: "))
-    inputInvalid = True
-    while inputInvalid:
-        inputInvalid = False
-        if checkIDinCSV(inputID)==True:
-            currentID = inputID
-            name = getName(currentID)
-            print("\nWelcome "+name)
-        else:
-            inputInvalid = True
-            inputID = int(input("Invalid ID, please enter a valid ID: "))
-     
-    # Create a dictionary to store available time slots for each room
-    roomSlotsDict = {}
-
-    # Loop through each column (starting at the second column)
-    for col in roomSlotsdf.columns[1:]:
-        # Create an empty list to store slot numbers with 0s for the current column (room)
-        roomSlots = []
-        # Loop through each row in the DataFrame
-        for index, row in roomSlotsdf.iterrows():
-            # Check if the value in the current cell is 0
-            if row[col] == 0:
-                # If it is, append the slot number to the roomSlots list
-                roomSlots.append(row['Slot'])
-        # Add the list of slot numbers with 0s for the current column to the dictionary
-        roomSlotsDict[col] = roomSlots
-
-    timeSlotsDict = {1:"09:00 -> 09:55", 2:"10:00 -> 10:55", 3:"11:00 -> 11:55", 4:"12:00 -> 12:55", 5:"14:00 -> 14:55", 6:"15:00 -> 15:55", 7:"16:00 -> 16:55" }
-    print("\nHere is a guide to the time slots:")
-    print("\nSlot\t Time")
-    for i in range(len(timeSlotsDict)):
-        print(i+1,"\t", timeSlotsDict[i+1])
-
-    print("\nHere is a list of rooms and the available time slots for each room:")
-    print("\nRoom\t\t   Slots Available")
-    print("South Wing\t",roomSlotsDict["South Wing"])
-    print("West Wing\t",roomSlotsDict["West Wing"])
-    print("Forest\t\t",roomSlotsDict["Forest"])
-    print("Meeting Room\t",roomSlotsDict["Meeting Room"])
-    print("TA Lounge\t",roomSlotsDict["TA Lounge"])
-    print("AWS Lounge\t",roomSlotsDict["AWS Lounge"])
-
-
-
-
